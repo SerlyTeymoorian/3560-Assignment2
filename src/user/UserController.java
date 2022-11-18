@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.stage.Stage;
 
+//controlling User UI 
 public class UserController implements Initializable {
 	
 	//the id to follow 
@@ -29,11 +30,19 @@ public class UserController implements Initializable {
 	@FXML private TextArea tweetMessage; 
 	
 	//user view id 
-	@FXML protected Label userView; 
+	@FXML private Label userView; 
+	
+	@FXML private Label hiddenItem; 
+	
+	//Id of view 
+	@FXML private AnchorPane viewId; 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//set the label to the user's id 
 		userView.setText("The User View of: " + TwitterEntryController.currentItem.getValue());
+		hiddenItem.setText(TwitterEntryController.currentItem.getValue());
+		hiddenItem.setVisible(false);
 	} 
 	
 	// follow a user that the id is typed 
@@ -78,6 +87,16 @@ public class UserController implements Initializable {
 		setInfo(TwitterEntryController.currentItem);
 		
 		getListToUpdate(user); 
+	}
+	
+	//get the TreeItem when selecting a view 
+	@FXML
+	public void getTheTreeView(MouseEvent mouseEvent) {
+		//get the user id of that view 
+		Label label = (Label) viewId.getChildren().get(8); 
+		
+		//get the corresponding TreeItem of that user id 
+		TwitterEntryController.currentItem = new TreeItem<String>(label.getText());  
 	}
 	
 	public void getListToUpdate(User user) throws IOException{	
