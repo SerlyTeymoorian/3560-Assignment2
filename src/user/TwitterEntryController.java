@@ -24,6 +24,7 @@ import visitor.CountUserVisitor;
 import visitor.PosMessVisitor;
 import java.util.HashMap;
 
+//controlling the Main UI 
 public class TwitterEntryController implements Initializable { 
 
 	// getting tree view 
@@ -44,6 +45,7 @@ public class TwitterEntryController implements Initializable {
 	//add an icon to the UserGroup 
 	private ImageView icon = new ImageView("icon/group.png"); 
 	
+	//protected so UserController can have access to them 
 	protected static Map<String, TreeItem<String>> items = new HashMap<String, TreeItem<String>>(); 
 	
 	protected static Map<TreeItem<String>, Stage> itemStage = new HashMap<TreeItem<String>, Stage>(); 
