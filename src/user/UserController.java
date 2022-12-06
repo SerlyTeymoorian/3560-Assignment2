@@ -49,7 +49,9 @@ public class UserController implements Initializable {
 		userView.setText("The User View of: " + TwitterEntryController.currentItem.getValue());
 		hiddenItem.setText(TwitterEntryController.currentItem.getValue());
 		hiddenItem.setVisible(false);
-		
+
+//****************************** PART 2 *************************************************************//
+//********************** ADDING THE CREATION TIME ***************************************************//
 		User a = User.listOfUsers.get(TwitterEntryController.currentItem.getValue()); 
 		//set the creation time 
 		creationTimeId.setText(String.valueOf(a.getCreationTime()));
@@ -86,7 +88,7 @@ public class UserController implements Initializable {
 		
 		//get the current user 
 		User user = User.listOfUsers.get(TwitterEntryController.currentItem.getValue()); 
-		
+
 		//add the message to the news feed of user 
 		//notify all the observers that the tweetMessage was posted 
 		user.addTweetMessage(tweetPost);	
@@ -151,6 +153,8 @@ public class UserController implements Initializable {
 			listOfNewsFeed.getItems().add(tweetMess); 
 		}
 		
+// **************************** PART 3 ***************************************//
+//************************* UPDATE THE TIME *********************************//
 		//set the update time 
 		updateTimeId.setText(String.valueOf(a.getUpdateTime()));
 	}
