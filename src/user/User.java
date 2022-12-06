@@ -19,11 +19,14 @@ import visitor.TwitterEntryVisitor;
 //	whenever post sth, notify all the followers 
 
 public class User extends Subject implements TwitterEntry, Observer  {
+
+//******************** ATTRIBUTES ******************************//
 	//time from creation 
 	private long creationTime = 0; 
 	
 	//last update time 
 	private long updateTime = 0; 
+//*************************************************************//
 	
 	//unique User id
 	private String userId;
@@ -52,13 +55,17 @@ public class User extends Subject implements TwitterEntry, Observer  {
 	//Whenever a new message is posted, 
 	//    => all the followers’ news feed list view should be updated and refreshed automatically.
 	@Override
-	public void update(Subject subject, String message) {
+	public void update(Subject subject, String message, long updateTime) {
 		
 		if(subject instanceof User) {
 			User a = (User)subject; 
 			
 			//add the tweetMessage to the observer 
 			this.twitterMess.add(a.getName() + ": " + message); 
+
+//****************************** UPDATE THE TIME (part 3) **********************//
+			//update the time 
+			this.updateTime = updateTime; 
 			
 			//replace the old version with updated version 
 			User.listOfUsers.replace(this.getName(), this); 
@@ -115,7 +122,8 @@ public class User extends Subject implements TwitterEntry, Observer  {
 		
 		//increment the total # of messages 
 		++totMess; 
-		
+
+//*********************************PART 3 ************************//
 		//update the time 
 		updateTime = System.currentTimeMillis();
 		
@@ -187,7 +195,8 @@ public class User extends Subject implements TwitterEntry, Observer  {
 	public static List<String> getDistinctMess(){
 		return distinctTwitterMess; 
 	}
-	
+
+//**************************** ADDED *******************//
 	//set the time of the creation 
 	@Override
 	public void setCreationTime(long time) {
