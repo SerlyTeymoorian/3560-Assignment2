@@ -25,7 +25,7 @@ import visitor.PosMessVisitor;
 import java.util.HashMap;
 
 //controlling the Main UI 
-public class TwitterEntryController implements Initializable { 
+public class TwitterEntryController implements Initializable { 	
 	//validate 
 	private boolean valid = true; 
 
@@ -55,7 +55,7 @@ public class TwitterEntryController implements Initializable {
 	protected static Map<TreeItem<String>, UserController> control = new HashMap<TreeItem<String>, UserController>(); 
 	
 //*******************************************************************************//	
-//									METHODS 				    				 
+//				METHODS 				    				 
 //*******************************************************************************//	
 	
 	// set the Root of the Tree 
@@ -82,7 +82,8 @@ public class TwitterEntryController implements Initializable {
 		treeView.setShowRoot(true);
 		treeView.setVisible(true);
 	}
-	
+
+//**************************** PART 1 ***********************//
 	//validate 
 	@FXML
 	public void validate(ActionEvent event) {
@@ -97,7 +98,8 @@ public class TwitterEntryController implements Initializable {
 		
 		alert.show();
 	}
-	
+
+//******************************* PART 3 *********************//
 	//display last updated User 
 	@FXML 
 	public void lastUpdatedUser(ActionEvent event) {
@@ -176,6 +178,7 @@ public class TwitterEntryController implements Initializable {
 			User.listOfUsers.put(userId.getText(), input); 
 			UserGroup.listOfUserGroups.replace((String) currentItem.getValue(), currentItemGroup); 
 			
+//****************************** NO SPACE *****************************//
 			if(input.getName().indexOf(' ') >= 0) {
 				valid = false; 
 			}
@@ -206,6 +209,7 @@ public class TwitterEntryController implements Initializable {
 			//add the group the list of groups 
 			UserGroup.listOfUserGroups.put(groupId.getText(), input); 
 			
+//****************************** NO SPACE *****************************//			
 			if(input.getName().indexOf(' ') >= 0) {
 				valid = false; 
 			}
