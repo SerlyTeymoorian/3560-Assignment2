@@ -121,7 +121,7 @@ public class User extends Subject implements TwitterEntry, Observer  {
 		
 		//update the news feed of all observers (followers) 
 		//notify all the observers about the update 
-		this.notifyObservers(mess);
+		this.notifyObservers(mess, updateTime);
 	}
 
 	//get the total number of users 
