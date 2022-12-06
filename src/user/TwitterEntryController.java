@@ -83,6 +83,21 @@ public class TwitterEntryController implements Initializable {
 		treeView.setVisible(true);
 	}
 	
+	//validate 
+	@FXML
+	public void validate(ActionEvent event) {
+		
+		alert.setTitle("Validate Result");
+		
+		if(valid) {
+			alert.setContentText(String.valueOf("All the User Ids are Valid!!"));
+		} else {
+			alert.setContentText(String.valueOf("All the User Ids are not Valid"));
+		}
+		
+		alert.show();
+	}
+	
 	//display last updated User 
 	@FXML 
 	public void lastUpdatedUser(ActionEvent event) {
@@ -281,21 +296,6 @@ public class TwitterEntryController implements Initializable {
 		//set the alert 
 		alert.setTitle("Positive Percentage Messages");
 		alert.setContentText("The percentage of positive messages is: " + percentageOfPosMess + "%");
-		alert.show();
-	}
-	
-	//validate 
-	@FXML
-	public void validate(ActionEvent event) {
-		
-		alert.setTitle("Validate Result");
-		
-		if(valid) {
-			alert.setContentText(String.valueOf("All the User Ids are Valid!!"));
-		} else {
-			alert.setContentText(String.valueOf("All the User Ids are not Valid"));
-		}
-		
 		alert.show();
 	}
 }
