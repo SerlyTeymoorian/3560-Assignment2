@@ -161,6 +161,10 @@ public class TwitterEntryController implements Initializable {
 			User.listOfUsers.put(userId.getText(), input); 
 			UserGroup.listOfUserGroups.replace((String) currentItem.getValue(), currentItemGroup); 
 			
+			if(input.getName().indexOf(' ') >= 0) {
+				valid = false; 
+			}
+			
 			//pass the group to the TreeView 
 			currentItem.getChildren().add(new TreeItem<String>(input.getName()));
 		}	 
@@ -171,7 +175,7 @@ public class TwitterEntryController implements Initializable {
 	public void addGroup(ActionEvent event) {
 
 		//if the selected item is a group
-		if(UserGroup.listOfUserGroups.containsKey(currentItem.getValue())) {
+		if(UserGroup.listOfUserGroups.containsKey(currentItem.getValue()) && !UserGroup.listOfUserGroups.containsKey(groupId.getText())) {
 			
 			//get the reference to the selected UserGroup 
 			UserGroup currentItemGroup = UserGroup.listOfUserGroups.get(currentItem.getValue()); 
@@ -186,6 +190,10 @@ public class TwitterEntryController implements Initializable {
 			
 			//add the group the list of groups 
 			UserGroup.listOfUserGroups.put(groupId.getText(), input); 
+			
+			if(input.getName().indexOf(' ') >= 0) {
+				valid = false; 
+			}
 			
 			TreeItem<String> itemToAdd = new TreeItem<>(input.getName(), icon);
 			
