@@ -10,6 +10,8 @@ import visitor.TwitterEntryVisitor;
 //UserGroup is a container containing: Users or UserGroups 
 
 public class UserGroup implements TwitterEntry {
+	//the time of creation 
+	private long creationTime = 0; 
 	
 	//Group ID
 	private String groupID; 
@@ -73,5 +75,16 @@ public class UserGroup implements TwitterEntry {
 	public String getName() {
 		return groupID;
 	}
+	
+	@Override
+	public void setCreationTime(long time) {
+		creationTime = time; 
+		
+	}
 
+	@Override
+	public long getCreationTime() {
+		// TODO Auto-generated method stub
+		return creationTime;
+	}
 } 
