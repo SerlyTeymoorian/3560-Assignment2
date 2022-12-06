@@ -13,4 +13,9 @@ public interface TwitterEntry extends Visitable {
 	//get total entries (either user or group)
 	public int getTotal(); 
 	
+	//set the creation time 
+	public void setCreationTime(long time); 
+	
+	//get the creation time 
+	public long getCreationTime(); 
 }
