@@ -19,6 +19,11 @@ import visitor.TwitterEntryVisitor;
 //	whenever post sth, notify all the followers 
 
 public class User extends Subject implements TwitterEntry, Observer  {
+	//time from creation 
+	private long creationTime = 0; 
+	
+	//last update time 
+	private long updateTime = 0; 
 	
 	//unique User id
 	private String userId;
@@ -111,6 +116,9 @@ public class User extends Subject implements TwitterEntry, Observer  {
 		//increment the total # of messages 
 		++totMess; 
 		
+		//update the time 
+		updateTime = System.currentTimeMillis();
+		
 		//update the news feed of all observers (followers) 
 		//notify all the observers about the update 
 		this.notifyObservers(mess);
@@ -178,6 +186,27 @@ public class User extends Subject implements TwitterEntry, Observer  {
 	
 	public static List<String> getDistinctMess(){
 		return distinctTwitterMess; 
+	}
+	
+	//set the time of the creation 
+	@Override
+	public void setCreationTime(long time) {
+		creationTime = time; 
+		
+	}
+
+	@Override
+	public long getCreationTime() {
+		// TODO Auto-generated method stub
+		return creationTime;
+	}
+
+	public long getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(long updateTime) {
+		this.updateTime = updateTime;
 	}
 
 }
