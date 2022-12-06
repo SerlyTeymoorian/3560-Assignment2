@@ -36,6 +36,12 @@ public class UserController implements Initializable {
 	
 	//Id of view 
 	@FXML private AnchorPane viewId; 
+	
+	//creation time
+	@FXML private Label creationTimeId; 
+	
+	//update time
+	@FXML private Label updateTimeId; 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -43,6 +49,10 @@ public class UserController implements Initializable {
 		userView.setText("The User View of: " + TwitterEntryController.currentItem.getValue());
 		hiddenItem.setText(TwitterEntryController.currentItem.getValue());
 		hiddenItem.setVisible(false);
+		
+		User a = User.listOfUsers.get(TwitterEntryController.currentItem.getValue()); 
+		//set the creation time 
+		creationTimeId.setText(String.valueOf(a.getCreationTime()));
 	} 
 	
 	// follow a user that the id is typed 
@@ -140,6 +150,9 @@ public class UserController implements Initializable {
 			
 			listOfNewsFeed.getItems().add(tweetMess); 
 		}
+		
+		//set the update time 
+		updateTimeId.setText(String.valueOf(a.getUpdateTime()));
 	}
 
 }
