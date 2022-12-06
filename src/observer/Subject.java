@@ -15,10 +15,10 @@ public abstract class Subject {
 		observers.remove(observer);
 	}
 	
-	public void notifyObservers(String message) {
+	public void notifyObservers(String message, long updateTime) {
 		
 		for(Observer obs : observers) {
-			obs.update(this, message);
+			obs.update(this, message, updateTime);
 		}
 	}
 }
