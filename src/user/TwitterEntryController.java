@@ -171,6 +171,10 @@ public class TwitterEntryController implements Initializable {
 			User input = new User();
 			input.setID(userId.getText());
 			
+//******************************* SET THE USER CREATION TIME (PART 2) ************************//
+			//set the time of creation 
+			input.setCreationTime(System.currentTimeMillis());
+			
 			//add it to the selected group's entry 
 			currentItemGroup.addEntry(input);
 			
@@ -182,6 +186,9 @@ public class TwitterEntryController implements Initializable {
 			if(input.getName().indexOf(' ') >= 0) {
 				valid = false; 
 			}
+			
+			//add the related group to the user in the list 
+			User.relatedGroup.put(input, currentItem.getValue()); 
 			
 			//pass the group to the TreeView 
 			currentItem.getChildren().add(new TreeItem<String>(input.getName()));
@@ -201,6 +208,10 @@ public class TwitterEntryController implements Initializable {
 			//create a new UserGroup from the given GriupId 
 			UserGroup input = new UserGroup();
 			input.setID(groupId.getText());
+			
+//******************************* SET THE GROUP CREATION TIME (PART 2) ************************//		
+			//set the group creation time 
+			input.setCreationTime(System.currentTimeMillis());
 			
 			//add it to the selected group's entry 
 			currentItemGroup.addEntry(input); 
