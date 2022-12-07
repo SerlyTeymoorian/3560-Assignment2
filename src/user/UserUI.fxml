@@ -36,5 +36,6 @@
       <Label fx:id="groupCreationTimeId" layoutX="547.0" layoutY="50.0" />
       <Label layoutX="31.0" layoutY="695.0" text="Last Update Time:" />
       <Label fx:id="updateTimeId" layoutX="138.0" layoutY="695.0" />
+      <Label fx:id="groupCreationTimeId" layoutX="540.0" layoutY="50.0" prefHeight="17.0" prefWidth="111.0" />
    </children>
 </AnchorPane>
