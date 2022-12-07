@@ -21,11 +21,13 @@ import visitor.TwitterEntryVisitor;
 public class User extends Subject implements TwitterEntry, Observer  {
 
 //******************** ATTRIBUTES ******************************//
-	//time from creation 
+	//time from user creation 
 	private long creationTime = 0; 
 	
 	//last update time 
 	private long updateTime = 0; 
+	
+	protected static Map<User, String> relatedGroup = new HashMap<User, String>(); 
 //*************************************************************//
 	
 	//unique User id
