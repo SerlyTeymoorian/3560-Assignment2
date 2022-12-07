@@ -40,6 +40,9 @@ public class UserController implements Initializable {
 	//creation time
 	@FXML private Label creationTimeId; 
 	
+	//group creation time 
+	@FXML private Label groupCreationTimeId; 
+	
 	//update time
 	@FXML private Label updateTimeId; 
 
@@ -52,9 +55,11 @@ public class UserController implements Initializable {
 
 //****************************** PART 2 *************************************************************//
 //********************** ADDING THE CREATION TIME ***************************************************//
-		User a = User.listOfUsers.get(TwitterEntryController.currentItem.getValue()); 
-		//set the creation time 
-		creationTimeId.setText(String.valueOf(a.getCreationTime()));
+		User user = User.listOfUsers.get(TwitterEntryController.currentItem.getValue()); 
+		UserGroup group = UserGroup.listOfUserGroups.get(User.relatedGroup.get(user)); 
+		//set the creation time  
+		creationTimeId.setText(String.valueOf(user.getCreationTime()));
+		groupCreationTimeId.setText(String.valueOf(group.getCreationTime()));
 	} 
 	
 	// follow a user that the id is typed 
